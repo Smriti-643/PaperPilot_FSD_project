@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="PaperPilot helps research authors prepare and organize conference submissions.">
+  <title>PaperPilot — Author workspace</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="text-slate-800">
+  <div class="app-shell">
+    <aside class="sidebar" id="sidebar">
+      <a class="brand" href="#" aria-label="PaperPilot home">
+        <span class="brand-mark">P<span>✦</span></span>
+        <span><strong>paperpilot</strong><small>AUTHOR WORKSPACE</small></span>
+      </a>
+      <div class="workspace-label">WORKSPACE</div>
+      <nav class="side-nav" aria-label="Main navigation">
+        <button class="nav-link active" data-page="dashboard"><span class="nav-icon">▦</span> Overview</button>
+        <button class="nav-link" data-page="conferences"><span class="nav-icon">⌕</span> Explore conferences</button>
+        <button class="nav-link" data-page="new-submission"><span class="nav-icon">＋</span> New submission</button>
+        <button class="nav-link" data-page="submissions"><span class="nav-icon">▤</span> My submissions <span class="nav-count" id="navSubmissionCount">0</span></button>
+      </nav>
+      <div class="sidebar-bottom">
+        <div class="help-card">
+          <div class="help-icon">✦</div>
+          <strong>Ready for your next paper?</strong>
+          <p>Use the checklist to make sure your submission details are complete.</p>
+          <button class="help-button" data-go="new-submission">Prepare a paper <span>↗</span></button>
+        </div>
+        <div class="profile-row">
+          <div class="avatar">AU</div>
+          <div class="profile-copy"><strong>Author workspace</strong><small>Researcher account</small></div>
+          <span class="profile-dots">•••</span>
+        </div>
+      </div>
+    </aside>
+
+    <main class="main-area">
+      <header class="topbar">
+        <button class="mobile-menu" id="mobileMenu" aria-label="Toggle navigation">☰</button>
+        <div class="breadcrumb">Workspace <span>/</span> <strong id="breadcrumbPage">Overview</strong></div>
+        <div class="topbar-right"><span class="secure-dot"></span><span>Personal workspace</span><div class="top-avatar">AU</div></div>
+      </header>
+
+      <div class="page-wrap">
+        <section class="page-section active" id="page-dashboard">
+          <div class="welcome-row">
+            <div><div class="eyebrow">MONDAY, YOUR RESEARCH WORKSPACE</div><h1>Good work starts with <span>good preparation.</span></h1><p class="page-intro">Keep your conference research submissions organized, complete and on track.</p></div>
+            <button class="primary-button" data-go="new-submission"><span>＋</span> Start a submission</button>
+          </div>
+
+          <div class="hero-strip">
+            <div class="hero-copy"><div class="hero-kicker"><span class="sparkle">✦</span> YOUR RESEARCH, IN GOOD ORDER</div><h2>One clear place for<br>every paper you prepare.</h2><p>Find conferences, check your submission readiness and keep track of your work — without losing sight of the details.</p><button class="hero-link" data-go="conferences">Explore conferences <span>→</span></button></div>
+            <div class="hero-art" aria-hidden="true"><div class="orbit orbit-one"></div><div class="orbit orbit-two"></div><div class="paper paper-back"></div><div class="paper paper-front"><div class="paper-line short"></div><div class="paper-line"></div><div class="paper-line"></div><div class="paper-chart"><i></i><i></i><i></i><i></i><i></i></div><div class="paper-line"></div></div><div class="floating-check">✓</div><div class="floating-star">✦</div></div>
+          </div>
+
+          <div class="section-heading"><div><h2>Your activity</h2><p>A quick look at your submission workspace.</p></div><span class="updated-label"><span></span> Updates as you work</span></div>
+          <div class="stats-grid">
+            <article class="stat-card"><div class="stat-top"><span class="stat-label">All submissions</span><span class="stat-icon lavender">▤</span></div><div class="stat-value" id="statTotal">0</div><div class="stat-foot">Papers saved in your workspace</div></article>
+            <article class="stat-card"><div class="stat-top"><span class="stat-label">In preparation</span><span class="stat-icon peach">✎</span></div><div class="stat-value" id="statDrafts">0</div><div class="stat-foot">Drafts you are still working on</div></article>
+            <article class="stat-card"><div class="stat-top"><span class="stat-label">Marked submitted</span><span class="stat-icon mint">✓</span></div><div class="stat-value" id="statSubmitted">0</div><div class="stat-foot">Submitted externally by you</div></article>
+          </div>
+
+          <div class="dashboard-grid">
+            <section class="content-card recent-card"><div class="card-heading"><div><h3>Recent submissions</h3><p>Your latest paper activity.</p></div><button class="text-action" data-go="submissions">View all →</button></div><div id="recentList" class="record-list"><div class="empty-state compact"><span class="empty-symbol">▤</span><strong>Your workspace is ready</strong><p>Your saved papers will appear here.</p><button class="small-primary" data-go="new-submission">Create your first submission</button></div></div></section>
+            <section class="content-card checklist-card"><div class="card-heading"><div><h3>Submission essentials</h3><p>A quick pre-submission reminder.</p></div><span class="tiny-badge">CHECKLIST</span></div><div class="essentials-list"><div><span class="essential-check">✓</span><span><strong>Paper details</strong><small>Title, abstract and author information</small></span></div><div><span class="essential-check">✓</span><span><strong>Conference guidelines</strong><small>Formatting and submission requirements</small></span></div><div><span class="essential-check">✓</span><span><strong>Final document</strong><small>Correct file type and final version</small></span></div><div><span class="essential-check">✓</span><span><strong>Research integrity</strong><small>Review citations and similarity requirements</small></span></div></div><button class="outline-button full-button" data-go="new-submission">Open readiness checklist <span>→</span></button></section>
+          </div>
+          <p class="disclaimer">PaperPilot is an independent preparation assistant. Always complete the official submission on the conference's own platform.</p>
+        </section>
+
+        <section class="page-section" id="page-conferences">
+          <div class="page-title-row"><div><div class="eyebrow">DISCOVER</div><h1>Explore conferences</h1><p class="page-intro">Browse sample conference opportunities and choose one to prepare for.</p></div></div>
+          <div class="content-card">
+            <div class="search-row"><div class="search-box"><span>⌕</span><input id="conferenceSearch" type="search" placeholder="Search by conference name or location..." aria-label="Search conferences"></div><span id="conferenceCount" class="result-count">Loading conferences…</span></div>
+            <div id="conferenceMessage" class="inline-message" role="status">Loading conference data…</div>
+            <div id="conferenceGrid" class="conference-grid"></div>
+          </div>
+          <p class="disclaimer">Conference entries are illustrative sample data, not verified live calls for papers. Check official conference websites for accurate dates and requirements.</p>
+        </section>
+
+        <section class="page-section" id="page-new-submission">
+          <div class="page-title-row"><div><div class="eyebrow">AUTHOR TOOLS</div><h1>Prepare a submission</h1><p class="page-intro">Capture the important details and check your readiness before submitting externally.</p></div><div class="step-pill"><span>01</span> PAPER DETAILS</div></div>
+          <div class="form-layout">
+            <form id="submissionForm" class="content-card submission-form" novalidate>
+              <div class="form-section-heading"><span class="section-number">01</span><div><h3>Paper information</h3><p>Tell us about the research you are preparing.</p></div></div>
+              <div class="form-field"><label for="conferenceSelect">Target conference <span>*</span></label><select id="conferenceSelect" required><option value="">Choose a conference</option></select><small>Select from the sample conference list.</small></div>
+              <div class="form-field"><label for="paperTitle">Research paper title <span>*</span></label><input id="paperTitle" type="text" maxlength="140" placeholder="e.g. Predicting Customer Purchase Behaviour Using Machine Learning" required><div class="field-meta"><small>Use the final title of your paper.</small><small id="titleCount">0 / 140</small></div></div>
+              <div class="form-grid-two"><div class="form-field"><label for="authorName">Author name <span>*</span></label><input id="authorName" type="text" placeholder="Your full name" required></div><div class="form-field"><label for="authorEmail">Email address <span>*</span></label><input id="authorEmail" type="email" placeholder="name@example.com" required></div></div>
+              <div class="form-field"><label for="abstract">Abstract <span>*</span></label><textarea id="abstract" rows="5" maxlength="1500" placeholder="Summarize your research problem, approach and key findings..." required></textarea><div class="field-meta"><small>Enter at least 40 characters.</small><small id="abstractCount">0 / 1500</small></div></div>
+              <div class="form-field"><label for="paperFile">Paper document</label><label class="upload-box" for="paperFile"><span class="upload-icon">↑</span><span><strong id="fileLabel">Choose a PDF file</strong><small>PDF format · Maximum 5 MB · Optional in this demo</small></span><span class="browse-label">Browse files</span></label><input id="paperFile" class="file-input" type="file" accept=".pdf,application/pdf"><small>The file is checked in your browser but is not uploaded to a server.</small></div>
+              <div class="form-divider"></div>
+              <div class="form-section-heading"><span class="section-number">02</span><div><h3>Readiness checklist</h3><p>Confirm these items before saving your preparation record.</p></div></div>
+              <div class="readiness-panel"><div class="readiness-top"><div><strong>Your readiness</strong><small id="readinessCaption">0 of 4 items completed</small></div><div class="readiness-percent" id="readinessPercent">0%</div></div><div class="progress-track"><div id="readinessBar" class="progress-fill"></div></div><div class="readiness-options"><label><input class="readiness-item" type="checkbox" value="title"><span class="custom-check">✓</span><span><strong>Title is finalized</strong><small>The title accurately reflects the research.</small></span></label><label><input class="readiness-item" type="checkbox" value="format"><span class="custom-check">✓</span><span><strong>Formatting guidelines checked</strong><small>The paper follows the target conference format.</small></span></label><label><input class="readiness-item" type="checkbox" value="authors"><span class="custom-check">✓</span><span><strong>Author details verified</strong><small>Names and contact details are correct.</small></span></label><label><input class="readiness-item" type="checkbox" value="integrity"><span class="custom-check">✓</span><span><strong>Research integrity reviewed</strong><small>Citations and required checks are complete.</small></span></label></div></div>
+              <div id="formFeedback" class="form-feedback hidden" role="alert"></div>
+              <div class="form-actions"><button class="primary-button" type="submit">Save preparation <span>→</span></button><button class="secondary-button" type="reset" id="clearForm">Clear form</button></div>
+            </form>
+            <aside class="form-aside"><div class="aside-note"><div class="aside-note-icon">✦</div><h3>Prepare with confidence</h3><p>A complete preparation record can help you keep the details together before visiting the official conference submission portal.</p></div><div class="aside-note soft-note"><h3>Before you submit</h3><ul><li>Confirm the official deadline.</li><li>Check the required paper template.</li><li>Verify author and affiliation details.</li><li>Read the conference's submission policy.</li></ul></div><div class="aside-note"><h3>What happens when I save?</h3><p>Your details are saved as a local draft in this browser. This does not send your paper to a conference.</p></div></aside>
+          </div>
+        </section>
+
+        <section class="page-section" id="page-submissions">
+          <div class="page-title-row"><div><div class="eyebrow">YOUR LIBRARY</div><h1>My submissions</h1><p class="page-intro">Review the preparation records saved in this browser.</p></div><button class="primary-button" data-go="new-submission">＋ New paper</button></div>
+          <div class="content-card">
+            <div class="submission-toolbar"><div class="search-box"><span>⌕</span><input id="submissionSearch" type="search" placeholder="Search your papers..." aria-label="Search submissions"></div><select id="statusFilter" class="filter-select" aria-label="Filter by status"><option value="all">All statuses</option><option value="Draft">In preparation</option><option value="Marked submitted">Marked submitted</option></select></div>
+            <div id="allSubmissions" class="record-list"><div class="empty-state"><span class="empty-symbol">▤</span><strong>No submissions yet</strong><p>Your saved preparation records will appear here.</p><button class="small-primary" data-go="new-submission">Prepare a paper</button></div></div>
+          </div>
+          <p class="disclaimer">“Marked submitted” is a manual record for your own tracking. PaperPilot does not verify or transmit submissions to external conference systems.</p>
+        </section>
+      </div>
+    </main>
+  </div>
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <script src="app.js"></script>
+</body>
+</html>
